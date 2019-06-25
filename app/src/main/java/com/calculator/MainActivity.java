@@ -69,49 +69,56 @@ public class MainActivity extends AppCompatActivity{
                 input.setText(input.getText()+"5");
             }
         });
+
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText() + "6");
             }
         });
+
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText() + "7");
             }
         });
+
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText() +"8");
             }
         });
+
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText()+"9");
             }
         });
+
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText()+"0");
             }
         });
+
         decimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText()+".");
             }
         });
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(input == null){
                         input.setText("");
                 }else{
-                    val1 = Float.parseFloat(input.getText()+ "");
+                    val1 = Float.parseFloat(input.getText().toString());
                     addition = true;
                     input.setText(null);
                 }
@@ -123,7 +130,7 @@ public class MainActivity extends AppCompatActivity{
                 if(input==null) {
                     input.setText("");
                 }else{
-                    val1 = Float.parseFloat(input.getText()+ "");
+                    val1 = Float.parseFloat(input.getText().toString());
                     subtraction = true;
                     input.setText(null);
                 }
@@ -135,7 +142,7 @@ public class MainActivity extends AppCompatActivity{
                 if(input==null)
                     input.setText("");
                 else{
-                    val1 = Float.parseFloat(input.getText()+ "");
+                    val1 = Float.parseFloat(input.getText().toString());
                     multiplication = true;
                     input.setText(null);
                 }
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity{
                 if(input==null)
                     input.setText("");
                 else{
-                    val1 = Float.parseFloat(input.getText()+ "");
+                    val1 = Float.parseFloat(input.getText().toString());
                     division =true;
                     input.setText(null);
                 }
@@ -159,7 +166,7 @@ public class MainActivity extends AppCompatActivity{
                 if(input==null)
                     input.setText("");
                 else{
-                    val1 = Float.parseFloat(input.getText()+ "");
+                    val1 = Float.parseFloat(input.getText().toString());
                     remainder= true;
                     input.setText(null);
                 }
@@ -174,7 +181,7 @@ public class MainActivity extends AppCompatActivity{
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val2 = Float.parseFloat(input.getText() +"");
+                val2 = Float.parseFloat(input.getText().toString());
                 if(addition){
                     input.setText(val1+val2+"");
                     addition = false;

@@ -152,16 +152,16 @@
     <Button
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:id="@+id/equal"
+        android:id="@+id/clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/multi"
         android:layout_toEndOf="@+id/mod"
         android:layout_toRightOf="@+id/mod"
-        android:text="="
+        android:text="C"
         />
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/equal"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
         android:layout_toEndOf="@+id/decimal"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="Clear" />
+        android:text="=" />
 
     <Button
         android:id="@+id/decimal"
