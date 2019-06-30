@@ -115,22 +115,19 @@ public class MainActivity extends AppCompatActivity{
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input == null){
-                        input.setText("");
-                }else{
-                    val1 = Float.parseFloat(input.getText().toString());
+                if(input.getText().length() != 0){
+                    val1 = Float.parseFloat(input.getText() + "");
                     addition = true;
                     input.setText(null);
                 }
             }
         });
+
         subButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input==null) {
-                    input.setText("");
-                }else{
-                    val1 = Float.parseFloat(input.getText().toString());
+                if(input.getText().length()!=0){
+                    val1 = Float.parseFloat(input.getText() + "");
                     subtraction = true;
                     input.setText(null);
                 }
@@ -139,10 +136,8 @@ public class MainActivity extends AppCompatActivity{
         multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input==null)
-                    input.setText("");
-                else{
-                    val1 = Float.parseFloat(input.getText().toString());
+                if(input.getText().length()!=0){
+                    val1 = Float.parseFloat(input.getText() + "");
                     multiplication = true;
                     input.setText(null);
                 }
@@ -151,10 +146,8 @@ public class MainActivity extends AppCompatActivity{
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input==null)
-                    input.setText("");
-                else{
-                    val1 = Float.parseFloat(input.getText().toString());
+                if(input.getText().length()!=0){
+                    val1 = Float.parseFloat(input.getText() + "");
                     division =true;
                     input.setText(null);
                 }
@@ -163,10 +156,8 @@ public class MainActivity extends AppCompatActivity{
         mod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input==null)
-                    input.setText("");
-                else{
-                    val1 = Float.parseFloat(input.getText().toString());
+                if(input.getText().length()!=0){
+                    val1 = Float.parseFloat(input.getText() + "");
                     remainder= true;
                     input.setText(null);
                 }
@@ -181,7 +172,7 @@ public class MainActivity extends AppCompatActivity{
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val2 = Float.parseFloat(input.getText().toString());
+                val2 = Float.parseFloat(input.getText()+ "");
                 if(addition){
                     input.setText(val1+val2+"");
                     addition = false;
@@ -202,7 +193,7 @@ public class MainActivity extends AppCompatActivity{
                     input.setText(val1%val2 +"");
                     remainder = false;
                 }else{
-                    input.setText("");
+                    input.setText(null);
                 }
             }
         });
