@@ -8,20 +8,19 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity{
     EditText input;
-    Button subButton,addButton,decimal,div,multi,clear,mod,equal,one,two,three,four,five,six,seven,eight,nine,zero;
+    Button subButton,addButton,decimal,div,multi,clear,equal,one,two,three,four,five,six,seven,eight,nine,zero;
     boolean addition,subtraction,division,multiplication,remainder;
     float val1,val2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        subButton = findViewById(R.id.subButton);
-        addButton = findViewById(R.id.addButton);
+        subButton = findViewById(R.id.subtraction);
+        addButton = findViewById(R.id.addition);
         decimal = findViewById(R.id.decimal);
-        div = findViewById(R.id.div);
-        multi = findViewById(R.id.multi);
+        div = findViewById(R.id.division);
+        multi = findViewById(R.id.multiply);
         clear = findViewById(R.id.clear);
-        mod = findViewById(R.id.mod);
         equal = findViewById(R.id.equal);
         one = findViewById(R.id.one);
         two = findViewById(R.id.two);
@@ -153,16 +152,7 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         });
-        mod.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(input.getText().length()!=0){
-                    val1 = Float.parseFloat(input.getText() + "");
-                    remainder= true;
-                    input.setText(null);
-                }
-            }
-        });
+
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +162,8 @@ public class MainActivity extends AppCompatActivity{
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val2 = Float.parseFloat(input.getText()+ "");
+                if(addition | multiplication | division | remainder| subtraction )
+                    val2 = Float.parseFloat(input.getText()+ "");
                 if(addition){
                     input.setText(val1+val2+"");
                     addition = false;
