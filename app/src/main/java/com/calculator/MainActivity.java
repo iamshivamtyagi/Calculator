@@ -1,16 +1,20 @@
 package com.calculator;
 
+import android.opengl.Visibility;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     EditText input;
-    Button subButton,addButton,decimal,div,multi,clear,equal,one,two,three,four,five,six,seven,eight,nine,zero;
-    boolean addition,subtraction,division,multiplication,remainder;
-    float val1,val2;
+    Button subButton, addButton, decimal, div, multi, clear, equal, one, two, three, four, five, six, seven, eight, nine, zero;
+    boolean addition, subtraction, division, multiplication, remainder;
+    float val1, val2;
+    TextView result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity{
         nine = findViewById(R.id.nine);
         zero = findViewById(R.id.zero);
         input = findViewById(R.id.input);
-
+        result = findViewById(R.id.result);
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +48,7 @@ public class MainActivity extends AppCompatActivity{
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(input.getText() +"2");
+                input.setText(input.getText() + "2");
             }
         });
 
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity{
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(input.getText()+"5");
+                input.setText(input.getText() + "5");
             }
         });
 
@@ -86,35 +90,35 @@ public class MainActivity extends AppCompatActivity{
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(input.getText() +"8");
+                input.setText(input.getText() + "8");
             }
         });
 
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(input.getText()+"9");
+                input.setText(input.getText() + "9");
             }
         });
 
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(input.getText()+"0");
+                input.setText(input.getText() + "0");
             }
         });
 
         decimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(input.getText()+".");
+                input.setText(input.getText() + ".");
             }
         });
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input.getText().length() != 0){
+                if (input.getText().length() != 0) {
                     val1 = Float.parseFloat(input.getText() + "");
                     addition = true;
                     input.setText(null);
@@ -125,7 +129,7 @@ public class MainActivity extends AppCompatActivity{
         subButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input.getText().length()!=0){
+                if (input.getText().length() != 0) {
                     val1 = Float.parseFloat(input.getText() + "");
                     subtraction = true;
                     input.setText(null);
@@ -135,7 +139,7 @@ public class MainActivity extends AppCompatActivity{
         multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input.getText().length()!=0){
+                if (input.getText().length() != 0) {
                     val1 = Float.parseFloat(input.getText() + "");
                     multiplication = true;
                     input.setText(null);
@@ -145,9 +149,9 @@ public class MainActivity extends AppCompatActivity{
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input.getText().length()!=0){
+                if (input.getText().length() != 0) {
                     val1 = Float.parseFloat(input.getText() + "");
-                    division =true;
+                    division = true;
                     input.setText(null);
                 }
             }
@@ -157,34 +161,35 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 input.setText(null);
+                result.setText(null);
+                result.setVisibility(View.INVISIBLE);
+                input.setVisibility(View.VISIBLE);
             }
         });
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(addition | multiplication | division | remainder| subtraction )
-                    val2 = Float.parseFloat(input.getText()+ "");
-                if(addition){
-                    input.setText(val1+val2+"");
+                if (addition | multiplication | division | remainder | subtraction)
+                    val2 = Float.parseFloat(input.getText() + "");
+                if (addition) {
+                    input.setVisibility(View.INVISIBLE);
+                    result.setText(val1 + val2 + "");
+                    result.setVisibility(View.VISIBLE);
                     addition = false;
-                }
-                else if(subtraction){
-                    input.setText(val1 - val2 +"");
+                } else if (subtraction) {
+                    result.setText(val1 - val2 + "");
                     subtraction = false;
-                }
-                else if(multiplication){
-                    input.setText(val1*val2 + "");
+                } else if (multiplication) {
+                    result.setText(val1 * val2 + "");
                     multiplication = false;
-                }
-                else if(division){
-                    input.setText(val1/val2 +"");
+                } else if (division) {
+                    result.setText(val1 / val2 + "");
                     division = false;
-                }
-                else if(remainder){
-                    input.setText(val1%val2 +"");
+                } else if (remainder) {
+                    result.setText(val1 % val2 + "");
                     remainder = false;
-                }else{
-                    input.setText(null);
+                } else {
+                    result.setText(null);
                 }
             }
         });
