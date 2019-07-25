@@ -9,9 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText input;
-    Button subButton, addButton, decimal, div, multi, clear, equal, one, two, three, four, five, six, seven, eight, nine, zero;
-    boolean addition, subtraction, division, multiplication, remainder;
+    TextView input;
+    Button subButton, addButton, decimal, div, multi, remainder, clear, equal, one, two, three, four, five, six, seven, eight, nine, zero;
+    boolean addition, subtraction, division, multiplication, modulus;
     float val1, val2;
     TextView result;
 
@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        subButton = findViewById(R.id.subtraction);
-        addButton = findViewById(R.id.addition);
+        subButton = findViewById(R.id.subButton);
+        addButton = findViewById(R.id.addButton);
         decimal = findViewById(R.id.decimal);
         div = findViewById(R.id.division);
         multi = findViewById(R.id.multiply);
@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         nine = findViewById(R.id.nine);
         zero = findViewById(R.id.zero);
         input = findViewById(R.id.input);
+        remainder = findViewById(R.id.remainder);
         result = findViewById(R.id.result);
+
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,8 +171,9 @@ public class MainActivity extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (addition | multiplication | division | remainder | subtraction)
+                if (addition | multiplication | division | modulus | subtraction){
                     val2 = Float.parseFloat(input.getText() + "");
+                }
                 if (addition) {
                     input.setVisibility(View.INVISIBLE);
                     result.setText(val1 + val2 + "");
@@ -185,10 +188,11 @@ public class MainActivity extends AppCompatActivity {
                 } else if (division) {
                     result.setText(val1 / val2 + "");
                     division = false;
-                } else if (remainder) {
+                } else if (modulus) {
                     result.setText(val1 % val2 + "");
-                    remainder = false;
-                } else {
+                    modulus = false;
+                }
+                else {
                     result.setText(null);
                 }
             }
