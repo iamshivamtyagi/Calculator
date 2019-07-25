@@ -1,16 +1,14 @@
 package com.calculator;
 
-import android.opengl.Visibility;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView input;
-    Button subButton, addButton, decimal, div, multi, remainder, clear, equal, one, two, three, four, five, six, seven, eight, nine, zero;
+    Button doubleZero,subButton, addButton, decimal, div, multi, remainder, clear, equal, one, two, three, four, five, six, seven, eight, nine, zero;
     boolean addition, subtraction, division, multiplication, modulus;
     float val1, val2;
     TextView result;
@@ -19,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        doubleZero = findViewById(R.id.doubleZero);
         subButton = findViewById(R.id.subButton);
         addButton = findViewById(R.id.addButton);
         decimal = findViewById(R.id.decimal);
@@ -107,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 input.setText(input.getText() + "0");
+            }
+        });
+
+        doubleZero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input.setText(input.getText() + "00");
             }
         });
 
