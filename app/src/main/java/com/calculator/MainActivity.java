@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView input, showInput;
     Button doubleZero,subButton, addButton, decimal, div, multi, remainder, clear, equal, one, two, three, four, five, six, seven, eight, nine, zero;
-    boolean addition, firstNum = false, secondNum = false, subtraction, division, multiplication, modulus;
+    boolean addition, firstNum = false, secondNum = false, subtraction, division, multiplication, modulus, operation;
     float val1, val2;
     TextView result;
 
@@ -212,11 +212,12 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (input.getText().length() != 0) {
+                if (input.getText().length() != 0 && !operation) {
                     val1 = Float.parseFloat(input.getText() + "");
                     addition = true;
                     input.setText(null);
                     firstNum = true;
+                    operation = true;
                     showInput.setText(showInput.getText() + "+");
                 }
             }
