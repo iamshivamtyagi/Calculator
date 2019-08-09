@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     float val1, val2;
     TextView result;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
