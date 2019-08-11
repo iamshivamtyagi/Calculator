@@ -30,4 +30,5 @@
         <item name="android:textColor">@color/colorEqualButtonTxt</item>
         <item name="android:background">@drawable/equal_round_rectangle_button</item>
     </style>
+    
 </resources>
