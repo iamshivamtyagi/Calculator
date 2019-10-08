@@ -1,8 +1,8 @@
 # Calculator
 Basic Calculator App
 
-![](images/image1.jpeg)
+![](images/Image1.jpeg)
 
-![](images/image2.jpeg)
+![](images/Image2.jpeg)
 
-![](images/image3.jpeg)
+![](images/Image3.jpeg)
