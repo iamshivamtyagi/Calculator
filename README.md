@@ -1,5 +1,5 @@
 # Calculator
-Basic Calculator App
+basic calculator application
 
 ![](images/Image1.jpeg)
 
